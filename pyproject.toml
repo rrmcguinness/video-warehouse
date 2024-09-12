@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "video-warehouse"
+version = "0.1.0"
+description = ""
+authors = ["Ryan McGuinness <rmcguinness@google.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+google-cloud-aiplatform = "^1.64.0"
+google-cloud-storage = "^2.18.2"
+ratelimit = "^2.2.1"
+tomlkit = "^0.13.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+warehouse = 'video_warehouse.main:main'
