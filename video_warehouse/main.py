@@ -17,16 +17,20 @@ from multiprocessing import Pool
 import traceback
 
 import vertexai
-from vertexai.generative_models import GenerativeModel, Image, Content, Part, Tool, FunctionDeclaration, GenerationConfig, ChatSession
+from vertexai.generative_models import Part
 from video_warehouse.agents import VisionModel, getEmbeddings,video_text_config
 from video_warehouse.domain import Config
 
 def answer_question(question, config, vision_model, video_part) -> None:
-    ans = vision_model.generate_content(contents=[question, video_part])
-    print("#"*80)
-    print(f"Question: {question}")
-    print(f"Answer:\n{ans.text}")
-    print(f"\nEmbeddings:\n{getEmbeddings(config=config, text=ans.text)}")
+    try:
+        ans = vision_model.generate_content(contents=[question, video_part])
+        print("#"*80)
+        print(f"Question: {question}")
+        print(f"Answer:\n{ans.text}")
+        print(f"\nEmbeddings:\n{getEmbeddings(config=config, text=ans.text)}")
+    except Exception as e:
+        print(f'Exception in processor: {e}')
+        print(traceback.format_exc())
 
 
 def main():

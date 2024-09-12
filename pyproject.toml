@@ -6,8 +6,8 @@ authors = ["Ryan McGuinness <rmcguinness@google.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
-google-cloud-aiplatform = "^1.64.0"
+python = "^3.11"
+google-cloud-aiplatform = "^1.66.0"
 google-cloud-storage = "^2.18.2"
 ratelimit = "^2.2.1"
 tomlkit = "^0.13.2"
